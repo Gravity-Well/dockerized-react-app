@@ -1,0 +1,13 @@
+# Docker requires sudo
+sudo: required
+language: generic
+
+# Tell Travis we need docker
+services:
+  - docker
+
+before_install:
+  - docker build -t rtomlin/dockerized-react-app -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true rtomlin/dockerized-react-app npm run test
