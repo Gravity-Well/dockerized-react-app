@@ -11,5 +11,7 @@ RUN npm run build
 # Stops prior FROM block
 # notice it also copies over the Build package from npm run build
 # This is the run phase, not tagged
+# EXPOSE needed for beanstalk
 FROM nginx
+EXPOSE 80
 COPY --from=builder /app/build /usr/share/nginx/html
