@@ -16,7 +16,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-        Dockerized React on Linux through beanstalk
+        Dockerized React on Linux through beanstalk off feature branch
         </a>
       </header>
     </div>
