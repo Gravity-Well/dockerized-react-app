@@ -12,12 +12,15 @@ before_install:
 script:
   - docker run -e CI=true rtomlin/dockerized-react-app npm run test
 
+# Access keys come from environment vars in travis
 deploy:
   provider: elasticbeanstalk
   region: 'us-east-1'
   app: 'dockerized-react-app'
-  env: 'dockerized-react-app'
+  env: 'Dockerizedreactapp-env'
   bucket_name: 'elasticbeanstalk-us-east-1-319351651804'
   bucket_path: 'dockerized-react-app'
   on:
     branch: main
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
