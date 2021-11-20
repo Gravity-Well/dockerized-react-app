@@ -11,3 +11,13 @@ before_install:
 
 script:
   - docker run -e CI=true rtomlin/dockerized-react-app npm run test
+
+deploy:
+  provider: elasticbeanstalk
+  region: 'us-east-1'
+  app: 'dockerized-react-app'
+  env: 'dockerized-react-app'
+  bucket_name: 'elasticbeanstalk-us-east-1-319351651804'
+  bucket_path: 'dockerized-react-app'
+  on:
+    branch: main
